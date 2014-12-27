@@ -148,7 +148,7 @@ while modo == 1:#loop principal(el verdadero juego)
         player.move_ip(vx,0)
         player.move_ip(0,vy)
 
-        reloj.tick(40)#regular la velacidad del juego (FPS)
+        reloj.tick(35)#regular la velacidad del juego (FPS)
 
         for obsta in listobstaculos:
                 pygame.draw.rect(ventana,(200,0,0),obsta)
