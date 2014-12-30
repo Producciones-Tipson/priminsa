@@ -14,6 +14,10 @@ pygame.display.set_caption("Priminsa (BETA)")
 fondo=(0,0,0)
 #--------------------------------------------------------------------
 
+#----------------------muros invisibles------------------------------
+murarriba=pygame.Rect(0,-500,700,500)
+murabajo=pygame.Rect(0,400,700,500)
+#--------------------------------------------------------------------
 
 #-----------------------------player---------------------------------
 posx=325
@@ -90,6 +94,8 @@ while modo==0:
         pygame.draw.rect(ventana,(255,255,255),(270,225,20,20))
         textblanco=texto.render("genera almas (vida)",0,blanco)
         ventana.blit(textblanco,(300,225))
+        advertencia=texto.render("los filos te empujan",0,blanco)
+        #ventana.blit(advertencia,(275,275))
         #------------------------------------------------------------
 
         ventana.blit(tipson,(470,370))
@@ -101,7 +107,15 @@ while modo == 1:#loop principal(el verdadero juego)
 
         ventana.fill(fondo)
 
-        pygame.draw.rect(ventana,(200,200,0),player)
+        pygame.draw.rect(ventana,(200,200,0),player)#dibujar player
+
+        #-----------------habilitar muros invisibles-----------------
+        #los muros estan desactivados hasta nuevo aviso
+        """if player.colliderect(murarriba):
+                vy+=1
+        if player.colliderect(murabajo):
+                vy-=1"""
+        #------------------------------------------------------------
 
         #----------------------graficar texto------------------------
         strvida= str(vida)
