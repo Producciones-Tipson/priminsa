@@ -13,6 +13,8 @@ pygame.init() #iniciar los modulos de pygame
 ventana=pygame.display.set_mode([1000,600])
 pygame.display.set_caption("Priminsa (BETA)")
 fondo=(0,0,0)
+ventana.fill((0,100,0))
+pygame.display.toggle_fullscreen()
 #--------------------------------------------------------------------
 
 #----------------------muros invisibles------------------------------
@@ -79,12 +81,15 @@ reloj=pygame.time.Clock()#reloj princpal
 
 #-------------------pantalla de inicio-------------------------------
 while modo==0:
+        ventana.fill(fondo)
         for event in pygame.event.get():#salida
                 if event.type == pygame.QUIT:
                         pygame.quit()
                 if event.type == pygame.KEYDOWN:#inicio
                         if event.key == pygame.K_SPACE:
                                 modo=1
+                        if event.key == pygame.K_F11:
+                                pygame.display.toggle_fullscreen()
         ventana.blit(inicio,(320,50))
         reloj.tick(10)
         #-----------------------explicacion--------------------------
@@ -136,17 +141,19 @@ while modo == 1:#loop principal(el verdadero juego)
                 #---------------------controles----------------------
                 if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RIGHT:
+                                vm=0
                                 vx+=10
                         if event.key == pygame.K_LEFT:
+                                vm=0
                                 vx-=10
                         if event.key == pygame.K_UP:
+                                vm=0
                                 vy-=15
-				vm=0
                         if event.key == pygame.K_DOWN:
+                                vm=0
                                 vy+=15
-				vm=0
                         if event.key == pygame.K_F11:
-                                pygame.display.toggle_fullscreen
+                                pygame.display.toggle_fullscreen()
                                 
                 if event.type == pygame.KEYUP:
                         if event.key == pygame.K_RIGHT:
