@@ -1,4 +1,4 @@
-# !/usr/bin/python
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
 
 #Priminsa es unjuego independiente producido por el José Santos
@@ -18,6 +18,7 @@ fondo=(0,0,0)
 #----------------------muros invisibles------------------------------
 murarriba=pygame.Rect(0,-500,1000,500)
 murabajo=pygame.Rect(0,600,1000,500)
+vm=0
 #--------------------------------------------------------------------
 
 #-----------------------------player---------------------------------
@@ -114,9 +115,9 @@ while modo == 1:#loop principal(el verdadero juego)
         #-----------------habilitar muros invisibles-----------------
         #los muros estan desactivados hasta nuevo aviso
         if player.colliderect(murarriba):
-                vy+=1
+                vm+=1
         if player.colliderect(murabajo):
-                vy-=1
+                vm-=1
         #------------------------------------------------------------
 
         #----------------------graficar texto------------------------
@@ -140,8 +141,10 @@ while modo == 1:#loop principal(el verdadero juego)
                                 vx-=10
                         if event.key == pygame.K_UP:
                                 vy-=15
+				vm=0
                         if event.key == pygame.K_DOWN:
                                 vy+=15
+				vm=0
                         if event.key == pygame.K_F11:
                                 pygame.display.toggle_fullscreen
                                 
@@ -162,6 +165,7 @@ while modo == 1:#loop principal(el verdadero juego)
         #movimiento fluido
         player.move_ip(vx,0)
         player.move_ip(0,vy)
+	player.move_ip(0,vm)#impacto contra los muros
 
         reloj.tick(35)#regular la velacidad del juego (FPS)
 
