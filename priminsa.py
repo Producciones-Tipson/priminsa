@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
-#Priminsa es unjuego independiente producido por el José Santos
+#Priminsa es un juego independiente producido por el José Santos
 #Lertora como proyecto de producciones tipson.
 
 import pygame
@@ -13,8 +13,8 @@ pygame.init() #iniciar los modulos de pygame
 ventana=pygame.display.set_mode([1000,600])
 pygame.display.set_caption("Priminsa (BETA)")
 fondo=(0,0,0)
-ventana.fill((0,100,0))
-pygame.display.toggle_fullscreen()
+ventana.fill((0,0,0))
+#pygame.display.toggle_fullscreen()
 #--------------------------------------------------------------------
 
 #----------------------muros invisibles------------------------------
@@ -106,7 +106,10 @@ while modo==0:
         ventana.blit(advertencia,(375,325))
         #------------------------------------------------------------
 
-        ventana.blit(tipson,(680,570))
+	textf11=texto.render("F11=fullscreen",0,blanco)
+	#ventana.blit(textf11,(0,570))
+
+        ventana.blit(tipson,(680,570)) #byproduccionestipson
 
         pygame.display.update()
 #--------------------------------------------------------------------
@@ -132,8 +135,8 @@ while modo == 1:#loop principal(el verdadero juego)
         contscore=texto.render(strscore,0,blanco)
         ventana.blit(textalmas,(50,20))
         ventana.blit(contalmas,(160,20))
-        ventana.blit(textscore,(650,20))
-        ventana.blit(contscore,(760,20))
+        ventana.blit(textscore,(750,20))
+        ventana.blit(contscore,(860,20))
         #------------------------------------------------------------
 
         for event in pygame.event.get():
@@ -248,8 +251,9 @@ while modo==2:
                         pygame.quit()
 
                 if event.type==pygame.KEYDOWN:
-                        print "tu score fue de ",score
-                        modo+=1
+			if event.key == pygame.K_SPACE:
+                        	print "tu score fue de ",score
+                        	modo+=1
 
         ventana.blit(gameo,(250,125))
         strscore=str(score)
