@@ -86,10 +86,10 @@ while modo==0:
                 if event.type == pygame.QUIT:
                         pygame.quit()
                 if event.type == pygame.KEYDOWN:#inicio
+			if event.key == pygame.K_F11:
+				pygame.display.toggle_fullscreen()	
                         if event.key == pygame.K_SPACE:
                                 modo=1
-                        if event.key == pygame.K_F11:
-                                pygame.display.toggle_fullscreen()
         ventana.blit(inicio,(320,50))
         reloj.tick(10)
         #-----------------------explicacion--------------------------
@@ -157,6 +157,10 @@ while modo == 1:#loop principal(el verdadero juego)
                                 vy+=15
                         if event.key == pygame.K_F11:
                                 pygame.display.toggle_fullscreen()
+			if event.key == pygame.K_SPACE:#neutralismo de rebeldia contra las fuerza de la gran priminza.
+				vm=0
+				vy=0
+				vx=0
                                 
                 if event.type == pygame.KEYUP:
                         if event.key == pygame.K_RIGHT:
@@ -251,7 +255,7 @@ while modo==2:
                         pygame.quit()
 
                 if event.type==pygame.KEYDOWN:
-			if event.key == pygame.K_SPACE:
+			if event.key == pygame.K_SPACE or event.key :
                         	print "tu score fue de ",score
                         	modo+=1
 
