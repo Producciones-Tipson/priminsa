@@ -33,7 +33,11 @@ score=0
 vida=5
 modo=0
 #--------------------------------------------------------------------
-
+#-----------------------------max score------------------------------
+rid=open("max.txt")
+maxscore=rid.read()
+strmax=str(maxscore)
+#--------------------------------------------------------------------
 #------------------------------texto---------------------------------
 texto=pygame.font.Font(None,40)
 blanco=(255,255,255)
@@ -41,6 +45,8 @@ inicio=texto.render("aplasta espacio para iniciar ",0,blanco)
 tipson=texto.render("#byproduccionestipson",0,blanco)
 textalmas=texto.render("ALMAS: ",0, blanco)
 textscore=texto.render("SCORE: ",0, blanco)
+textrec=texto.render("RECORD: ",0,blanco)
+mostrec=texto.render(strmax,0,blanco)
 over=pygame.font.Font(None,120)
 gameo=over.render("GAME OVER",0,blanco)
 #--------------------------------------------------------------------
@@ -135,8 +141,10 @@ while modo == 1:#loop principal(el verdadero juego)
         contscore=texto.render(strscore,0,blanco)
         ventana.blit(textalmas,(50,20))
         ventana.blit(contalmas,(160,20))
-        ventana.blit(textscore,(750,20))
-        ventana.blit(contscore,(860,20))
+        ventana.blit(textscore,(450,20))
+        ventana.blit(contscore,(560,20))
+	ventana.blit(textrec,(750,20))
+	ventana.blit(mostrec,(890,20))
         #------------------------------------------------------------
 
         for event in pygame.event.get():
