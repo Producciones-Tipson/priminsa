@@ -108,7 +108,7 @@ while modo==0:
         pygame.draw.rect(ventana,(255,255,255),(370,280,20,20))
         textblanco=texto.render("genera almas (vida)",0,blanco)
         ventana.blit(textblanco,(400,275))
-        advertencia=texto.render("los filos te empujan",0,blanco)
+        advertencia=texto.render("los bordes te empujan",0,blanco)
         ventana.blit(advertencia,(375,325))
         #------------------------------------------------------------
 
@@ -189,7 +189,7 @@ while modo == 1:#loop principal(el verdadero juego)
         player.move_ip(0,vy)
 	player.move_ip(0,vm)#impacto contra los muros
 
-        reloj.tick(35)#regular la velacidad del juego (FPS)
+        reloj.tick(32)#regular la velacidad del juego (FPS)
 
         for obsta in listobstaculos:
                 pygame.draw.rect(ventana,(200,0,0),obsta)
