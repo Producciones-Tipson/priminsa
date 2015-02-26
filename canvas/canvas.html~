@@ -1,0 +1,12 @@
+<html>
+<head>
+  <script type="text/javascript" src="canvas.js">
+</scipt>
+</head>
+<body>
+  <center>
+  <canvas id="canvas" width="1500" height="900" style="background:#999">
+  </canvas>
+  </center>
+</body>
+</html>
